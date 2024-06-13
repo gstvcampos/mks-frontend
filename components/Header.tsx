@@ -1,30 +1,20 @@
+import CartIcon from './icons/CartIcon'
+
 export const Header = () => {
   return (
-    <div className="drawer drawer-end z-10 w-full h-12 md:h-24 bg-primary">
+    <div className="drawer drawer-end z-10 w-full bg-primary">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-      <header className="mx-auto w-full max-w-screen-2xl flex justify-between items-center bg-primary px-5 text-primary-content">
+      <header className="mx-auto w-full max-w-screen-2xl flex justify-between items-center bg-primary p-2 text-primary-content">
         <div className="flex items-end gap-1">
-          <span className="font-semibold text-3xl">MKS</span>
+          <h1 className="font-semibold text-3xl">MKS</h1>
           <span className="font-light text-base">Sistemas</span>
         </div>
         <label
           htmlFor="my-drawer-3"
           aria-label="open sidebar"
-          className="btn btn-square btn-ghost"
+          className="btn btn-square"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-6 h-6 stroke-current"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          <CartIcon className="w-5 h-5" />
         </label>
       </header>
 

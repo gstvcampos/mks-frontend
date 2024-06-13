@@ -18,8 +18,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
       <div className="card-body p-4">
         <h2 className="font-bold text-base line-clamp-2 min-h-[2.5rem]">
           {product.name}
-        </h2>{' '}
+        </h2>
         <p className="font-bold self-end">{formatPrice(product.price)}</p>
+        <button>comprar</button>
       </div>
     </li>
   )
