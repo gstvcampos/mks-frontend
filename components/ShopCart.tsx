@@ -1,24 +1,14 @@
 'use client'
 
-import { Cart } from '@/@types/cart'
-import {
-  addItemToCart,
-  getCartFromLocalStorage,
-  removeAllToCart,
-  removeItemFromCart,
-} from '@/lib/cart'
+import { CartContext } from '@/contexts/ProductContexts'
 import { formatPrice } from '@/lib/ultis'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import CloseCartIcon from './icons/CloseCartIcon'
 
 export default function ShopCart() {
-  const [cart, setCart] = useState<Cart>({ items: [], subtotal: 0 })
-
-  useEffect(() => {
-    const cartData = getCartFromLocalStorage()
-    setCart(cartData)
-  }, [])
+  const { cart, addItemToCart, removeItemFromCart, removeAllFromCart } =
+    useContext(CartContext)
 
   return (
     <ul className="space-y-5 py-9 px-3">
@@ -28,7 +18,7 @@ export default function ShopCart() {
           className="relative mx-auto h-28 bg-white rounded-lg"
         >
           <button
-            onClick={() => removeAllToCart(product.id)}
+            onClick={() => removeAllFromCart(product.id)}
             className="absolute -top-2 -right-2"
           >
             <CloseCartIcon className="h-5 w-5" />
