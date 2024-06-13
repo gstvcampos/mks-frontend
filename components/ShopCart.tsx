@@ -16,7 +16,7 @@ export default function ShopCart() {
         {cart.items.map((product) => (
           <li
             key={product.id}
-            className="relative mx-auto h-28 bg-white rounded-lg"
+            className="relative mx-auto md:h-28 bg-white rounded-lg"
           >
             <button
               onClick={() => removeAllFromCart(product.id)}
@@ -24,8 +24,8 @@ export default function ShopCart() {
             >
               <CloseCartIcon className="h-5 w-5" />
             </button>
-            <div className="flex items-center justify-between p-2">
-              <div className="relative block w-20 pt-[20%]">
+            <div className="flex flex-col md:flex-row items-center justify-between p-2">
+              <div className="relative block w-20 pt-[30%] md:pt-[20%]">
                 <Image
                   fill
                   src={product.photo}
@@ -34,11 +34,13 @@ export default function ShopCart() {
                 />
               </div>
 
-              <span className="text-xs w-24">{product.name}</span>
+              <span className="text-base md:text-xs md:w-24">
+                {product.name}
+              </span>
 
-              <div className="flex flex-col gap-1 w-[100px]">
-                <span className="text-[9px]">Qtd:</span>
-                <div className="flex justify-around w-[60px] border rounded-md p-1 text-xs">
+              <div className="flex md:flex-col justify-between gap-1 w-full md:w-[100px] p-2 md:p-0">
+                <span className="hidden md:text-[9px]">Qtd:</span>
+                <div className="flex items-center justify-around w-[60px] border rounded-md p-1 text-xs">
                   <button onClick={() => removeItemFromCart(product.id)}>
                     -
                   </button>
@@ -47,9 +49,12 @@ export default function ShopCart() {
                   </span>
                   <button onClick={() => addItemToCart(product)}>+</button>
                 </div>
+                <span className="md:hidden bg-[#373737] text-white text-base rounded-lg font-bold p-1 h-8">
+                  {formatPrice(product.price)}
+                </span>
               </div>
 
-              <span className="font-bold w-24">
+              <span className="hidden md:block font-bold w-24">
                 {formatPrice(product.price)}
               </span>
             </div>
