@@ -1,6 +1,5 @@
 import { Cart } from '@/@types/cart'
 import { Product } from '@/@types/product'
-import { revalidatePath } from 'next/cache'
 
 const getCartFromLocalStorage = (): Cart => {
   let cartData = { items: [], subtotal: 0 }
@@ -29,7 +28,6 @@ const addItemToCart = (product: Product, quantity: number = 1): void => {
 
   cart.subtotal += quantity * Number(product.price)
   saveCartToLocalStorage(cart)
-  revalidatePath('/')
 }
 
 const removeItemFromCart = (productId: number, quantity: number = 1): void => {
@@ -46,7 +44,6 @@ const removeItemFromCart = (productId: number, quantity: number = 1): void => {
       cart.items.splice(itemIndex, 1)
     }
     saveCartToLocalStorage(cart)
-    revalidatePath('/')
   }
 }
 
@@ -59,7 +56,6 @@ const removeAllToCart = (productId: number): void => {
   )
 
   saveCartToLocalStorage(cart)
-  revalidatePath('/')
 }
 
 export {

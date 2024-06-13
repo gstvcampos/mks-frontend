@@ -7,8 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 
 export function formatPrice(price: number | string) {
   const numericPrice = typeof price === 'string' ? parseFloat(price) : price
-  return numericPrice.toLocaleString('pt-br', {
-    style: 'currency',
-    currency: 'BRL',
-  })
+  return 'R$' + numericPrice.toFixed(0)
 }

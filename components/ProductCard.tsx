@@ -17,10 +17,16 @@ export const ProductCard = ({ product }: { product: Product }) => {
       </div>
 
       <div className="card-body p-0">
-        <h2 className="font-bold text-base line-clamp-2 min-h-[2.5rem]">
-          {product.name}
-        </h2>
-        <p className="font-bold self-end">{formatPrice(product.price)}</p>
+        <div className="p-2 space-y-2">
+          <div className="flex justify-between text-base">
+            <h2 className="text-base line-clamp-2">{product.name}</h2>
+            <span className="bg-[#373737] text-white rounded-lg font-bold p-1 h-8">
+              {formatPrice(product.price)}
+            </span>
+          </div>
+          <p className="font-light line-clamp-2">{product.description}</p>
+        </div>
+
         <BuyBtn product={product} />
       </div>
     </li>

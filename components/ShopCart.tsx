@@ -4,6 +4,7 @@ import { Cart } from '@/@types/cart'
 import {
   addItemToCart,
   getCartFromLocalStorage,
+  removeAllToCart,
   removeItemFromCart,
 } from '@/lib/cart'
 import { formatPrice } from '@/lib/ultis'
@@ -26,7 +27,10 @@ export default function ShopCart() {
           key={product.id}
           className="relative mx-auto h-28 bg-white rounded-lg"
         >
-          <button className="absolute -top-2 -right-2">
+          <button
+            onClick={() => removeAllToCart(product.id)}
+            className="absolute -top-2 -right-2"
+          >
             <CloseCartIcon className="h-5 w-5" />
           </button>
           <div className="flex items-center justify-between p-2">
@@ -39,20 +43,22 @@ export default function ShopCart() {
               />
             </div>
 
-            <span className="max-w-11">{product.name}</span>
+            <span className="text-xs w-24">{product.name}</span>
 
-            <div className="flex gap-3 border rounded-md p-1">
-              <span>Qtd:</span>
-              <div>
+            <div className="flex flex-col gap-1 w-[100px]">
+              <span className="text-[9px]">Qtd:</span>
+              <div className="flex justify-around w-[60px] border rounded-md p-1 text-xs">
                 <button onClick={() => removeItemFromCart(product.id)}>
                   -
                 </button>
-                <span>{product.quantity}</span>
+                <span className="border-r border-l px-2">
+                  {product.quantity}
+                </span>
                 <button onClick={() => addItemToCart(product)}>+</button>
               </div>
             </div>
 
-            <span>{formatPrice(product.price)}</span>
+            <span className="font-bold w-24">{formatPrice(product.price)}</span>
           </div>
         </li>
       ))}
