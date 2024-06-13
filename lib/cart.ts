@@ -1,15 +1,20 @@
 import { Cart } from '@/@types/cart'
 import { Product } from '@/@types/product'
-
-const CART_SHOP = 'cart'
+import { revalidatePath } from 'next/cache'
 
 const getCartFromLocalStorage = (): Cart => {
-  const cartData = localStorage.getItem(CART_SHOP)
-  return cartData ? JSON.parse(cartData) : { items: [], subtotal: 0 }
+  let cartData = { items: [], subtotal: 0 }
+  if (typeof window !== 'undefined') {
+    const storedCart = window.localStorage.getItem('shopCart')
+    if (storedCart) {
+      cartData = JSON.parse(storedCart)
+    }
+  }
+  return cartData
 }
 
 const saveCartToLocalStorage = (cart: Cart): void => {
-  localStorage.setItem(CART_SHOP, JSON.stringify(cart))
+  localStorage.setItem('shopCart', JSON.stringify(cart))
 }
 
 const addItemToCart = (product: Product, quantity: number = 1): void => {
@@ -24,6 +29,7 @@ const addItemToCart = (product: Product, quantity: number = 1): void => {
 
   cart.subtotal += quantity * Number(product.price)
   saveCartToLocalStorage(cart)
+  revalidatePath('/')
 }
 
 const removeItemFromCart = (productId: number, quantity: number = 1): void => {
@@ -40,6 +46,7 @@ const removeItemFromCart = (productId: number, quantity: number = 1): void => {
       cart.items.splice(itemIndex, 1)
     }
     saveCartToLocalStorage(cart)
+    revalidatePath('/')
   }
 }
 
@@ -52,8 +59,12 @@ const removeAllToCart = (productId: number): void => {
   )
 
   saveCartToLocalStorage(cart)
-
-  saveCartToLocalStorage(cart)
+  revalidatePath('/')
 }
 
-export { addItemToCart, removeAllToCart, removeItemFromCart }
+export {
+  addItemToCart,
+  getCartFromLocalStorage,
+  removeAllToCart,
+  removeItemFromCart,
+}

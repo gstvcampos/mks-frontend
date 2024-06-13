@@ -1,4 +1,5 @@
 import Drawer from './Drawer'
+import ShopCart from './ShopCart'
 
 export const Header = () => {
   return (
@@ -9,14 +10,7 @@ export const Header = () => {
           <span className="font-light text-base">Sistemas</span>
         </div>
         <Drawer id="cart" title="Carinho de compras">
-          <div>
-            <ul>
-              <li>ola</li>
-              <li>ola</li>
-              <li>ola</li>
-              <li>ola</li>
-            </ul>
-          </div>
+          <ShopCart />
         </Drawer>
       </div>
     </header>

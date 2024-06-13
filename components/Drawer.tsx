@@ -13,7 +13,7 @@ export default function Drawer({
   children: React.ReactNode
 }) {
   return (
-    <div className="relative drawer-end z-20 w-">
+    <div className="relative drawer-end z-20">
       <input id={id} type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <label htmlFor={id} aria-label="open sidebar" className="btn">
@@ -27,7 +27,7 @@ export default function Drawer({
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <div className="p-4 w-[330px] md:w-[486px] min-h-full bg-primary text-base-content">
           <div className="flex justify-between">
             <h3 className="font-bold p-4 uppercase">{title}</h3>
             <label

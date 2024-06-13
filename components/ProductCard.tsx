@@ -12,7 +12,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
           src={product.photo}
           alt="imagem do produto"
           sizes="(min-width: 640px) 25vw, 50vw"
-          className="object-cover object-center absolute top-0 left-0"
+          className="object-contain object-center absolute top-0 left-0"
         />
       </div>
 
