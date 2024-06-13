@@ -10,11 +10,11 @@ export const Header = () => {
           <h1 className="font-semibold text-3xl">MKS</h1>
           <span className="font-light text-base">Sistemas</span>
         </div>
-        <Drawer id="cart" title="Carinho de compras">
-          <CartProvider>
+        <CartProvider>
+          <Drawer id="cart">
             <ShopCart />
-          </CartProvider>
-        </Drawer>
+          </Drawer>
+        </CartProvider>
       </div>
     </header>
   )
