@@ -13,12 +13,10 @@ export default async function Home() {
   const products: Product[] = data.products
 
   return (
-    <main className="max-w-screen-lg px-10 py-5 md:py-16 md:px-20 mx-auto">
+    <main className="max-w-screen-xl px-10 py-5 md:py-16 md:px-20 mx-auto">
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
         {products.map((product) => (
-          <li key={product.id}>
-            <ProductCard product={product} />
-          </li>
+          <ProductCard product={product} key={product.id} />
         ))}
       </ul>
     </main>
