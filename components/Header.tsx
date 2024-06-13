@@ -1,3 +1,4 @@
+import { CartProvider } from '@/contexts/ProductContexts'
 import Drawer from './Drawer'
 import ShopCart from './ShopCart'
 
@@ -10,7 +11,9 @@ export const Header = () => {
           <span className="font-light text-base">Sistemas</span>
         </div>
         <Drawer id="cart" title="Carinho de compras">
-          <ShopCart />
+          <CartProvider>
+            <ShopCart />
+          </CartProvider>
         </Drawer>
       </div>
     </header>

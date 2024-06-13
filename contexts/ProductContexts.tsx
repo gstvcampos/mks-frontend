@@ -20,7 +20,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (typeof window !== 'undefined') {
       const storedCart = window.localStorage.getItem('shopCart')
       if (storedCart) {
-        setCart(JSON.parse(storedCart))
+        const parsedCart = JSON.parse(storedCart)
+        if (parsedCart && parsedCart.items) {
+          setCart(parsedCart)
+        }
       }
     }
   }, [])
