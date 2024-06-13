@@ -33,7 +33,7 @@ export default function Drawer({
             <label
               htmlFor={id}
               aria-label="close sidebar"
-              className="btn btn-square btn-outline"
+              className="btn btn-ghost hover:bg-primary"
             >
               <CloseCartIcon />
             </label>
