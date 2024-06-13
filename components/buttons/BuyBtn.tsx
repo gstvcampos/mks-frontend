@@ -10,7 +10,7 @@ export default function BuyBtn({ product }: { product: Product }) {
   return (
     <button
       onClick={() => addItemToCart(product)}
-      className="btn btn-primary rounded-none mt-auto"
+      className="btn btn-primary mt-auto rounded-b-xl rounded-t-none"
     >
       Comprar
     </button>
