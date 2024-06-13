@@ -12,9 +12,10 @@ export const Header = () => {
         <label
           htmlFor="my-drawer-3"
           aria-label="open sidebar"
-          className="btn btn-square"
+          className="btn text-xs md:text-lg font-bold"
         >
           <CartIcon className="w-5 h-5" />
+          <span>0</span>
         </label>
       </header>
 
