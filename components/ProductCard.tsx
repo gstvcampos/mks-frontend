@@ -1,5 +1,4 @@
 import { Product } from '@/@types/product'
-import { CartProvider } from '@/contexts/ProductContexts'
 import { formatPrice } from '@/lib/ultis'
 import Image from 'next/image'
 import BuyBtn from './buttons/BuyBtn'
@@ -27,9 +26,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
           </div>
           <p className="font-light line-clamp-2">{product.description}</p>
         </div>
-        <CartProvider>
-          <BuyBtn product={product} />
-        </CartProvider>
+        <BuyBtn product={product} />
       </div>
     </li>
   )

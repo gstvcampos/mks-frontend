@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { CartProvider } from '@/contexts/ProductContexts'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
@@ -18,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" data-theme="light">
-      <body className={montserrat.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <CartProvider>
+        <body className={montserrat.className}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </CartProvider>
     </html>
   )
 }

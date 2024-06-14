@@ -29,6 +29,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const updateCart = (newCart: Cart) => {
+    newCart.subtotal = newCart.items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    )
     setCart(newCart)
     localStorage.setItem('shopCart', JSON.stringify(newCart))
   }
@@ -45,7 +49,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       updatedCart.items.push({ ...product, quantity: 1 })
     }
 
-    updatedCart.subtotal += Number(product.price)
     updateCart(updatedCart)
   }
 
@@ -63,7 +66,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
         updatedCart.items.splice(itemIndex, 1)
       }
 
-      updatedCart.subtotal -= Number(cart.items[itemIndex].price)
       updateCart(updatedCart)
     }
   }
@@ -72,10 +74,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const updatedCart = { ...cart }
     updatedCart.items = updatedCart.items.filter(
       (item) => item.id !== productId,
-    )
-    updatedCart.subtotal = updatedCart.items.reduce(
-      (total, item) => total + item.quantity * Number(item.price),
-      0,
     )
 
     updateCart(updatedCart)
