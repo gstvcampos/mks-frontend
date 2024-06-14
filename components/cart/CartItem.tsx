@@ -1,10 +1,11 @@
+import { ProductWithQuantity } from '@/@types/cart'
 import { Product } from '@/@types/product'
 import { formatPrice } from '@/lib/ultis'
 import Image from 'next/image'
 import CloseCartIcon from '../icons/CloseCartIcon'
 
 export interface CartItemProps {
-  product: Product
+  product: ProductWithQuantity
   addItemToCart: (product: Product) => void
   removeItemFromCart: (id: number) => void
   removeAllFromCart: (id: number) => void
