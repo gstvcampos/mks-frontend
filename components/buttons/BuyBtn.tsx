@@ -1,7 +1,7 @@
 'use client'
 
 import { Product } from '@/@types/product'
-import { CartContext } from '@/contexts/ProductContexts'
+import { CartContext } from '@/contexts/CartContext'
 import BuyIcon from '@/public/BuyIcon'
 import { useContext } from 'react'
 

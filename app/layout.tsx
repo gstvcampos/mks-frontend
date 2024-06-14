@@ -1,6 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { CartProvider } from '@/contexts/ProductContexts'
+import { CartProvider } from '@/contexts/CartContext'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
