@@ -2,6 +2,7 @@
 
 import { Product } from '@/@types/product'
 import { CartContext } from '@/contexts/ProductContexts'
+import BuyIcon from '@/public/BuyIcon'
 import { useContext } from 'react'
 
 export default function BuyBtn({ product }: { product: Product }) {
@@ -10,9 +11,10 @@ export default function BuyBtn({ product }: { product: Product }) {
   return (
     <button
       onClick={() => addItemToCart(product)}
-      className="btn btn-primary mt-auto rounded-b-xl rounded-t-none"
+      className="btn btn-primary mt-auto rounded-b-xl rounded-t-none font-semibold"
     >
-      Comprar
+      <BuyIcon />
+      COMPRAR
     </button>
   )
 }

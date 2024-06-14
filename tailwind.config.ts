@@ -7,7 +7,15 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   daisyui: {
-    themes: ['light'],
+    themes: [
+      {
+        light: {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          ...require('daisyui/src/theming/themes').light,
+          primary: '#0F52BA',
+        },
+      },
+    ],
   },
   plugins: [require('daisyui')],
 }

@@ -1,8 +1,8 @@
 'use client'
 
 import { CartContext } from '@/contexts/ProductContexts'
+import CartIcon from '@/public/CartIcon'
 import { useContext } from 'react'
-import CartIcon from '../icons/CartIcon'
 import CartItem from './CartItem'
 import DrawerCartFooter from './DrawerCartFooter'
 import DrawerHeader from './DrawerCartHeader'
