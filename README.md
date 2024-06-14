@@ -13,7 +13,7 @@ Este projeto é um teste para uma vaga de Desenvolvedor frontend na MKS.
 
 ![Mobile Screen](/public/mobile.png)
 
-[Projeto live](https://jet-teste-tecnico-dev-frontend-three.vercel.app/)
+[Projeto live](https://mks-frontend-alpha.vercel.app/)
 
 ## Pré-requisitos
 
