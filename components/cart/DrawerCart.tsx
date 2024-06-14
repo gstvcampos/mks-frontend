@@ -26,9 +26,9 @@ export default function DrawerCart() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="pr-4 w-[330px] md:w-[486px] min-h-full bg-primary text-base-content">
+        <div className="pr-4 w-[330px] h-full  md:w-[486px] min-h-full bg-primary text-base-content">
           <DrawerHeader />
-          <ul className="space-y-5 p-6 h-[400px] overflow-auto">
+          <ul className="space-y-5 p-6 overflow-auto max-h-full h-[calc(100%-300px)]">
             {cart.items.map((product) => (
               <CartItem
                 key={product.id}

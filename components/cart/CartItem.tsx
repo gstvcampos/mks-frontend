@@ -2,7 +2,6 @@ import { ProductWithQuantity } from '@/@types/cart'
 import { Product } from '@/@types/product'
 import { formatPrice } from '@/lib/ultis'
 import Image from 'next/image'
-import CloseCartIcon from '../icons/CloseCartIcon'
 
 export interface CartItemProps {
   product: ProductWithQuantity
@@ -21,9 +20,9 @@ export default function CartItem({
     <li className="relative mx-auto md:h-28 bg-white rounded-lg">
       <button
         onClick={() => removeAllFromCart(product.id)}
-        className="absolute -top-2 -right-2"
+        className="absolute top-2 right-2 md:-top-2 md:-right-2 bg-white md:bg-black text-black md:text-white text-3xl md:text-sm rounded-full w-6 h-6 flex items-center justify-center z-10"
       >
-        <CloseCartIcon className="h-5 w-5" />
+        X
       </button>
       <div className="flex flex-col md:flex-row items-center justify-between p-2">
         <div className="relative block w-20 pt-[30%] md:pt-[20%]">
